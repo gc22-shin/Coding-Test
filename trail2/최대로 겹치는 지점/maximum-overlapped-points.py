@@ -11,11 +11,5 @@ for a, b in segments:
 
 #print(total)
 
-max = 0
-for i in total:
-    if max < i:
-        max = i
-    
-
-print(max)
+print(max(total))
 
