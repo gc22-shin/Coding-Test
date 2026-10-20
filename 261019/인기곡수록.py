@@ -1,4 +1,3 @@
-#https://school.programmers.co.kr/learn/courses/30/lessons/42579/solution_groups?language=python3
 def solution(genres, plays):
     answer = []
     dic = {}
@@ -6,21 +5,16 @@ def solution(genres, plays):
     play_dic = {}
     
     for i, (g, p) in enumerate(zip(genres, plays)):
-        #print(i, g, p)
         play_dic[g] = play_dic.get(g, 0) + p
         
     for i, (g, p) in enumerate(zip(genres, plays)):
-        '''
-        if g not in dic:
-            dic[g] = [play_dic[g], (i, p)]
-        else:
-            dic[g].append((i, p))
-        '''
         temp.append((i, g, p, play_dic[g]))
+    
     temp.sort(key = lambda x : (-x[3], -x[2], x[0]))
-    #print(temp)
+    
     g_count = 0
     prev_g = ''
+    
     for song in temp:
         if prev_g == song[1]:
             if g_count < 2:
@@ -33,8 +27,11 @@ def solution(genres, plays):
             g_count = 1
             answer.append(song[0])
             
-        
-                   
-    
-    
+    ''' 이렇게 세는것 가능
+    count = {}
+    for song in temp:
+        if count.get(song[1], 0) < 2:
+            count[song[1]] = count.get(song[1], 0) + 1
+            answer.append(song[0])
+    '''
     return answer
