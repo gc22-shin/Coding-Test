@@ -11,6 +11,21 @@ def solution(phone_book):
     
     return answer
 
+#해시로 풀기
+def solution(phone_book):
+    answer = True   
+    
+    book_set = set(phone_book)
+    
+    for number in phone_book:
+        temp = ""
+        for n in number:
+            temp += n
+            if temp in book_set and temp != number: #북셋에 있고, 자기 자신이 아니면
+                return False
+    
+    return answer
+
 #오답 
 def solution(phone_book):
     answer = True   
