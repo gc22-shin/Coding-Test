@@ -18,3 +18,14 @@ def solution(participant, completion):
     
     return answer
 
+##오답: 시간 초과
+
+def solution(participant, completion):
+    answer = ''
+    for a in participant:
+        if a in completion:
+            completion.remove(a)
+        else:
+            answer = a
+    
+    return answer
